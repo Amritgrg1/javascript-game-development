@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas" style="background-color: red" width="300" height="300">
+    </canvas>
+  </body>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const c = canvas.getContext("2d");
+
+    let x = 0;
+    let y = 0;
+    function drawCircle() {
+      c.clearRect(0, 0, 300, 300);
+      c.beginPath();
+      c.fillStyle = "black";
+      c.arc(x, y, 30, 0, 360);
+      c.fill();
+      y += 2;
+    }
+
+    canvas.addEventListener("click", (event) => {
+      x = event.clientX;
+      y = event.clientY;
+    });
+    //Game loop
+    function update() {
+      drawCircle();
+      window.requestAnimationFrame(update);
+    }
+    update();
+  </script>
+</html>

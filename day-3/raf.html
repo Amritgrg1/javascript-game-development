@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas" style="background-color: red" width="300" height="300">
+    </canvas>
+  </body>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const c = canvas.getContext("2d");
+
+    let y = 0;
+
+    function render() {
+      c.clearRect(0,0,300,300);
+      c.beginPath();
+      c.fillStyle = "black";
+      c.rect(0, y, 50, 50);
+      c.fill();
+      y+=1
+    }
+
+    
+    //Game loop
+    function update() {
+      render();
+      window.requestAnimationFrame(update);
+    }
+    update();
+  </script>
+</html>
