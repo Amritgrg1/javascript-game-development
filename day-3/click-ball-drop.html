@@ -24,6 +24,13 @@
       y += 2;
     }
 
+    function collision() {
+        if(x > 300) {
+            console.log("collision");
+        }
+
+    }
+ 
     canvas.addEventListener("click", (event) => {
       x = event.clientX;
       y = event.clientY;
